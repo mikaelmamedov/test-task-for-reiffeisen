@@ -26,10 +26,6 @@ public class SocksController {
             return ResponseEntity.badRequest().build();
         }
 
-        System.out.println(color);
-        System.out.println(operation);
-        System.out.println(cottonPart);
-
         Optional<List<Socks>> optionalSocksList = socksService.findByParameter(color, cottonPart, operation);
 
         if(optionalSocksList.isPresent()){

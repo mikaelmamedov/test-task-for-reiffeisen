@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface SocksRepository extends JpaRepository<Socks, Long> {
     Optional<Socks> findByColorAndCottonPart(String color, int cottonPart);
 
-    Optional<List<Socks>> findAllByColorAndQuantityIsGreaterThan(String color, int quantity);
-    Optional<List<Socks>> findAllByColorAndQuantityIsLessThan(String color, int quantity);
-    Optional<List<Socks>> findAllByColorAndQuantityEquals(String color, int quantity);
+    Optional<List<Socks>> findAllByColorAndCottonPartEquals(String color, int quantity);
+    Optional<List<Socks>> findAllByColorAndCottonPartIsGreaterThan(String color, int quantity);
+    Optional<List<Socks>> findAllByColorAndCottonPartIsLessThan(String color, int quantity);
 }

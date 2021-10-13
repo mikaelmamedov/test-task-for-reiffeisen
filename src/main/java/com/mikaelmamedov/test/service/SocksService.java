@@ -48,11 +48,11 @@ public class SocksService {
     public Optional<List<Socks>> findByParameter(String color, int cottonPart, String criteria) {
         switch(criteria) {
             case "moreThan":
-                return socksRepository.findAllByColorAndQuantityIsGreaterThan(color, cottonPart);
+                return socksRepository.findAllByColorAndCottonPartIsGreaterThan(color, cottonPart);
             case "lessThan":
-                return socksRepository.findAllByColorAndQuantityIsLessThan(color, cottonPart);
+                return socksRepository.findAllByColorAndCottonPartIsLessThan(color, cottonPart);
             case "equal":
-                return socksRepository.findAllByColorAndQuantityEquals(color, cottonPart);
+                return socksRepository.findAllByColorAndCottonPartEquals(color, cottonPart);
             default:
                 return Optional.empty();
         }

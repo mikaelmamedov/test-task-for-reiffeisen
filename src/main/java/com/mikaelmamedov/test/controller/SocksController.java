@@ -22,7 +22,7 @@ public class SocksController {
     @GetMapping
     public ResponseEntity<List<Socks>> findByParamater(@RequestParam String color, @RequestParam String operation,
                                                        @RequestParam int cottonPart) {
-        if(cottonPart <= 0) {
+        if(cottonPart <= 0 || cottonPart >= 100) {
             return ResponseEntity.badRequest().build();
         }
 

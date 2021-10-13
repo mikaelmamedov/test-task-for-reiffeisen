@@ -19,10 +19,19 @@ public class SocksController {
         this.socksService = socksService;
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<Socks>> findAll(){
+        List<Socks> socksList = socksService.findAll();
+        if(socksList.isEmpty()){
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.ok(socksList);
+    }
+
     @GetMapping
     public ResponseEntity<List<Socks>> findByParamater(@RequestParam String color, @RequestParam String operation,
                                                        @RequestParam int cottonPart) {
-        if(cottonPart <= 0 || cottonPart >= 100) {
+        if(cottonPart <= 0 || cottonPart > 100) {
             return ResponseEntity.badRequest().build();
         }
 
